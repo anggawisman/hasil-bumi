@@ -142,7 +142,7 @@ function MenuCard({
       >
         <span className="menu-card__number">
           {/* {String(index + 1).padStart(2, "0")}  */}
-          {item.price ? `Rp ${item.price.toLocaleString("id-ID")}` : ""}
+          {item.price ? `Rp ${item.price}` : ""}
         </span>
         {item.note && <span className="menu-card__note">{item.note}</span>}
       </div>
