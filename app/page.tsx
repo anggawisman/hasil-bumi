@@ -9,6 +9,7 @@ import {
 type MenuItem = {
   name: string;
   detail?: string;
+  price?: string;
   image: string;
   imagePosition?: string;
   note?: string;
@@ -21,6 +22,7 @@ const mainCourse: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85",
     imagePosition: "center 55%",
+    price: "35K",
     note: "Dari kebun",
   },
   {
@@ -29,6 +31,7 @@ const mainCourse: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1000&q=85",
     imagePosition: "center 55%",
+    price: "35K",
     note: "Favorit",
   },
   {
@@ -37,22 +40,29 @@ const mainCourse: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1000&q=85",
     imagePosition: "center 55%",
+    price: "35K",
   },
   {
     name: "Nasi Goreng",
     detail: "Kecombrang",
     image:
       "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1000&q=85",
+    price: "35K",
+
   },
   {
     name: "Mie Goreng",
     image:
       "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1000&q=85",
+    price: "35K",
+
   },
   {
     name: "Mie Rebus",
     image:
       "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1000&q=85",
+    price: "35K",
+
   },
 ];
 
@@ -61,36 +71,43 @@ const snacks: MenuItem[] = [
     name: "Pisang Goreng",
     image:
       "https://images.unsplash.com/photo-1587132137056-bfbf0166836e?auto=format&fit=crop&w=1000&q=85",
+    price: "15K",
   },
   {
     name: "Sukun Goreng",
     image:
       "https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?auto=format&fit=crop&w=1000&q=85",
+    price: "15K",
   },
   {
     name: "Bakwan Jagung",
     image:
       "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1000&q=85",
+    price: "15K",
   },
   {
     name: "Mendoan",
     image:
       "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1000&q=85",
+    price: "15K",
   },
   {
     name: "Tempe Krispi",
     image:
       "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85",
+    price: "15K",
   },
   {
     name: "Sosis Solo",
     image:
       "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=1000&q=85",
+    price: "15K",
   },
   {
     name: "Lemper Ketan",
     image:
       "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=1000&q=85",
+    price: "15K",
   },
 ];
 
@@ -101,6 +118,7 @@ const seasonal: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85",
     note: "Menu musiman",
+    price: "40K",
   },
 ];
 
@@ -123,7 +141,8 @@ function MenuCard({
         aria-label={`${item.name}${item.detail ? ` ${item.detail}` : ""}`}
       >
         <span className="menu-card__number">
-          {String(index + 1).padStart(2, "0")}
+          {/* {String(index + 1).padStart(2, "0")}  */}
+          {item.price ? `Rp ${item.price.toLocaleString("id-ID")}` : ""}
         </span>
         {item.note && <span className="menu-card__note">{item.note}</span>}
       </div>
@@ -164,7 +183,7 @@ function Section({
           <h2>{title}</h2>
           <p className="section-description">{description}</p>
         </div>
-        <span className="section-count">{String(items.length).padStart(2, "0")}</span>
+        {/* <span className="section-count">{String(items.length).padStart(2, "0")}</span> */}
       </div>
       <div className="menu-grid">
         {items.map((item, index) => (
@@ -203,6 +222,7 @@ const restaurantJsonLd = {
 export default function Home() {
   return (
     <main className="site-shell">
+      
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
@@ -229,16 +249,17 @@ export default function Home() {
       </header>
 
       <section className="hero-frame" id="home">
-        <div className="hero-corner hero-corner--tl" aria-hidden="true" />
+
+        {/* <div className="hero-corner hero-corner--tl" aria-hidden="true" />
         <div className="hero-corner hero-corner--tr" aria-hidden="true" />
         <div className="hero-corner hero-corner--bl" aria-hidden="true" />
-        <div className="hero-corner hero-corner--br" aria-hidden="true" />
+        <div className="hero-corner hero-corner--br" aria-hidden="true" /> */}
         <div className="hero-inner">
           <p className="hero-kicker">Dari kebun, untuk meja</p>
           <div className="hero-title-row">
-            <span className="hero-flourish" aria-hidden="true">〰</span>
+            {/* <span className="hero-flourish" aria-hidden="true">〰</span> */}
             <h1>MENU</h1>
-            <span className="hero-flourish hero-flourish--right" aria-hidden="true">〰</span>
+            {/* <span className="hero-flourish hero-flourish--right" aria-hidden="true">〰</span> */}
           </div>
           <p className="hero-subtitle">
             Sajian sederhana, rasa yang dekat dengan alam.
@@ -250,9 +271,6 @@ export default function Home() {
       </section>
 
       <div className="intro-strip">
-        <span className="intro-line" />
-        <p>GOOD FOOD GROWS FROM GOOD SOIL</p>
-        <span className="intro-line" />
       </div>
 
       <Section

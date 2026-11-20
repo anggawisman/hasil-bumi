@@ -73,8 +73,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
-      <body className={`${knewave.variable} ${montserrat.variable}`}>
+    <html lang="id" className={`${knewave.variable} ${montserrat.variable}`}>
+      <body>
+        <div className="page-decorations" aria-hidden="true">
+          <img
+            src="/bowl.svg"
+            alt=""
+            className="page-decoration page-decoration--bowl"
+          />
+
+          <img
+            src="/drink.svg"
+            alt=""
+            className="page-decoration page-decoration--drink"
+          />
+        </div>
+
         {children}
       </body>
     </html>

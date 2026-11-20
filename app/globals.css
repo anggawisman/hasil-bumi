@@ -118,7 +118,7 @@ a {
   overflow: hidden;
 }
 
-.hero-frame::before,
+/* .hero-frame::before,
 .hero-frame::after {
   content: "";
   position: absolute;
@@ -127,7 +127,7 @@ a {
   background: var(--green);
   top: 50%;
   opacity: 0.65;
-}
+} */
 
 .hero-frame::before {
   left: 5.5%;
@@ -657,5 +657,100 @@ a {
 
   .hero-flourish {
     display: none;
+  }
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.page-decorations {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.page-decoration {
+  position: absolute;
+  height: auto;
+  opacity: 0.16;
+  user-select: none;
+  filter: saturate(0.85);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+/* Position in side gutters on wide screens so they frame .site-shell */
+.page-decoration--bowl {
+  width: clamp(140px, 14vw, 240px);
+  left: max(12px, calc(50% - 560px - 170px));
+  top: 210px;
+  transform: rotate(-8deg);
+}
+
+.page-decoration--drink {
+  width: clamp(135px, 13vw, 220px);
+  right: max(12px, calc(50% - 560px - 160px));
+  top: 680px;
+  transform: rotate(7deg);
+}
+
+/* Keep page content above decorations */
+.site-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* Medium / smaller desktop & tablet: tuck closer to edges and soften opacity */
+@media (max-width: 1360px) {
+  .page-decoration {
+    opacity: 0.8;
+  }
+
+  .page-decoration--bowl {
+    width: clamp(110px, 12vw, 170px);
+    left: -28px;
+    top: 240px;
+  }
+
+  .page-decoration--drink {
+    width: clamp(105px, 11vw, 160px);
+    right: -28px;
+    top: 740px;
+  }
+}
+
+/* Mobile: keep subtle peeking accents or hide if preferred */
+@media (max-width: 700px) {
+  .page-decoration {
+    opacity: 0.8;
+  }
+
+  .page-decoration--bowl {
+    width: 96px;
+    left: -34px;
+    top: 170px;
+    transform: rotate(-12deg);
+  }
+
+  .page-decoration--drink {
+    width: 92px;
+    right: -34px;
+    top: 620px;
+    transform: rotate(10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-decoration {
+    transition: none;
   }
 }
