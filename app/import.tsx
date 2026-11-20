@@ -365,7 +365,7 @@ function MenuCard({
         aria-label={`${item.name}${item.detail ? ` ${item.detail}` : ""}`}
       >
         <span className="menu-card__number">
-          {item.price ? `Rp ${item.price.toLocaleString("id-ID")}` : ""}
+          {item.price ? `Rp ${item.price}` : ""}
         </span>
         {item.note && <span className="menu-card__note">{item.note}</span>}
       </div>
